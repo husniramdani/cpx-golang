@@ -16,21 +16,48 @@ package main
 import "fmt"
 
 func main() {
-	var n, p int
-	ans := 0
-	limit := 0
-	fmt.Scan(&n, &p)
-	arr := make([]int, n)
-	for i := 0; i < n; i++ {
-		fmt.Scan(&arr[i])
-		if i+1 == p {
-			limit = arr[i]
+	var s string
+	fmt.Scan(&s)
+	var a, b, c int
+	for _, x := range s {
+		if x == '1' {
+			a++
+		} else if x == '2' {
+			b++
+		} else if x == '3' {
+			c++
 		}
 	}
-	for _, x := range arr {
-		if x >= limit && x > 0 {
-			ans++
+	for a+b+c > 0 {
+		if a > 0 {
+			fmt.Print(1)
+			a--
+		} else if b > 0 {
+			fmt.Print(2)
+			b--
+		} else if c > 0 {
+			fmt.Print(3)
+			c--
+		}
+		if a+b+c > 0 {
+			fmt.Print("+")
 		}
 	}
-	fmt.Println(ans)
 }
+
+// better approach
+// package main
+
+// import(
+// 	"fmt"
+// 	"sort"
+// 	"strings"
+// )
+
+// func main(){
+// 	var s string
+// 	fmt.Scan(&s)
+// 	ans := strings.Split(s, "+")
+// 	sort.Strings(ans)
+// 	fmt.Println(strings.Join(ans, "+"))
+// }
