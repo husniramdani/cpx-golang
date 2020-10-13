@@ -10,16 +10,20 @@
 // ░░░░░░░▄█▄░░░░░░░░░░░▀▄░░▀▀▀▀▀▀▀▀░░▄▀░░
 // ░░░░░░█▀▀█████████▀▀▀▀████████████▀░░░░
 // ░░░░░░████▀░░███▀░░░░░░▀███░░▀██▀░░░░░░
-
 package main
 
-import (
-	"fmt"
-	"strings"
-)
+import "fmt"
 
 func main() {
+	var n int
 	var s string
+	ans := 0
+	fmt.Scan(&n)
 	fmt.Scan(&s)
-	fmt.Println(strings.Title(s))
+	for i := 0; i < n-1; i++ {
+		if s[i] == s[i+1] {
+			ans++
+		}
+	}
+	fmt.Println(ans)
 }
