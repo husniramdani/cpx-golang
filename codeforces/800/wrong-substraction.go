@@ -16,13 +16,15 @@ package main
 import "fmt"
 
 func main() {
-	var x, y int
-	ans := 0
-	fmt.Scan(&x, &y)
-	for x <= y {
-		ans++
-		x *= 3
-		y *= 2
+	var n, m int
+	fmt.Scan(&n, &m)
+	for m > 0 {
+		if n%10 == 0 {
+			n /= 10
+		} else {
+			n--
+		}
+		m--
 	}
-	fmt.Println(ans)
+	fmt.Println(n)
 }
