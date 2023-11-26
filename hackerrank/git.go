@@ -23,12 +23,16 @@ func main() {
   if newFiles != "" {
     gitAddCmd(newFiles)
     gitCommitCmd("add", newFiles)
+  } else {
+    fmt.Println("There are no new files")
   }
   fmt.Println() 
   // commit  updated files
   if updatedFiles != "" {
     gitAddCmd(updatedFiles)
     gitCommitCmd("update", updatedFiles)
+  } else {
+    fmt.Println("There are no updated files")
   }
 }
 
