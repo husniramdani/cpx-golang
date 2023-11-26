@@ -15,12 +15,9 @@ func main() {
   // define new files and updated files
 	newFiles, updatedFiles := filteredFiles(listofFiles)
 
-  fmt.Println("List of new files :", newFiles)
-  fmt.Println("LIst of updated files :", updatedFiles)
-  fmt.Println()
-
   // commit new files
   if newFiles != "" {
+    fmt.Println("List of new files :", newFiles)
     gitAddCmd(newFiles)
     gitCommitCmd("add", newFiles)
   } else {
@@ -29,6 +26,7 @@ func main() {
   fmt.Println() 
   // commit  updated files
   if updatedFiles != "" {
+    fmt.Println("LIst of updated files :", updatedFiles)
     gitAddCmd(updatedFiles)
     gitCommitCmd("update", updatedFiles)
   } else {
