@@ -33,7 +33,7 @@ func main() {
     fmt.Println("There are no updated files")
   }
   // commit deleted files
-  if updatedFiles != "" {
+  if deletedFiles != "" {
     fmt.Println("List of deleted files :", deletedFiles)
     gitAddCmd(deletedFiles)
     gitCommitCmd("deleted", deletedFiles)
