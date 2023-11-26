@@ -13,7 +13,7 @@ func main() {
   // get list of new files
   listofFiles := getListOfFiles()
   // define new files and updated files
-	newFiles, updatedFiles := filteredFiles(listofFiles)
+	newFiles, updatedFiles, deletedFiles := filteredFiles(listofFiles)
 
   // commit new files
   if newFiles != "" {
@@ -24,7 +24,7 @@ func main() {
     fmt.Println("There are no new files")
   }
   fmt.Println() 
-  // commit  updated files
+  // commit updated files
   if updatedFiles != "" {
     fmt.Println("List of updated files :", updatedFiles)
     gitAddCmd(updatedFiles)
@@ -32,6 +32,15 @@ func main() {
   } else {
     fmt.Println("There are no updated files")
   }
+  // commit deleted files
+  if updatedFiles != "" {
+    fmt.Println("List of deleted files :", deletedFiles)
+    gitAddCmd(deletedFiles)
+    gitCommitCmd("deleted", deletedFiles)
+  } else {
+    fmt.Println("There are no deletedFiles files")
+  }
+
 }
 
 func getListOfFiles() string{
@@ -45,19 +54,23 @@ func getListOfFiles() string{
   return string(output);
 }
 
-func filteredFiles(statusOutput string) (string, string) {
-	var newFiles, updatedFiles []string
+func filteredFiles(statusOutput string) (string, string, string) {
+	var newFiles, updatedFiles, deletedFiles []string
 	lines := strings.Split(statusOutput, "\n")
 
 	for _, line := range lines {
 		if strings.HasPrefix(line, "??") {
 			newFiles = append(newFiles, strings.TrimSpace(strings.TrimPrefix(line, "??")))
-		} else {
+		}
+    if strings.HasPrefix(line, " M") {
       updatedFiles = append(updatedFiles, strings.TrimSpace(strings.TrimPrefix(line, " M")))
+    }
+    if strings.HasPrefix(line, " D") {
+      deletedFiles = append(deletedFiles, strings.TrimSpace(strings.TrimPrefix(line, " D")))
     }
 	}
 
-	return strings.Join(newFiles, " "), strings.Join(updatedFiles, " ")
+	return strings.Join(newFiles, " "), strings.Join(updatedFiles, " "), strings.Join(updatedFiles, " ")
 }
 
 func gitAddCmd(files string){
