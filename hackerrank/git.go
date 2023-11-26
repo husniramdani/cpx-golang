@@ -99,5 +99,5 @@ func gitCommitCmd(key string, files string){
     fmt.Println("Error :", err)
     return
   }
-  fmt.Println("Success git commit", messages)
+  fmt.Printf("Success git commit %s \n", messages)
 }
