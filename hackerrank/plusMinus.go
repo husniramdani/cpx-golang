@@ -15,6 +15,7 @@ import (
  * The function accepts INTEGER_ARRAY arr as parameter.
  */
 
+// updated
 func plusMinus(arr []int32) {
   var pos, zero, neg float32;
   var arrLen = float32(len(arr));
