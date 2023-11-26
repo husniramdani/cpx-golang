@@ -22,7 +22,7 @@ func main() {
   // commit new files
   gitAddCmd(newFiles)
   gitCommitCmd("add", newFiles)
-  
+  fmt.Println() 
   // commit  updated files
   gitAddCmd(updatedFiles)
   gitCommitCmd("update", updatedFiles)
