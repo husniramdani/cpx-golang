@@ -20,12 +20,16 @@ func main() {
   fmt.Println()
 
   // commit new files
-  gitAddCmd(newFiles)
-  gitCommitCmd("add", newFiles)
+  if newFiles != "" {
+    gitAddCmd(newFiles)
+    gitCommitCmd("add", newFiles)
+  }
   fmt.Println() 
   // commit  updated files
-  gitAddCmd(updatedFiles)
-  gitCommitCmd("update", updatedFiles)
+  if updatedFiles != "" {
+    gitAddCmd(updatedFiles)
+    gitCommitCmd("update", updatedFiles)
+  }
 }
 
 func getListOfFiles() string{
