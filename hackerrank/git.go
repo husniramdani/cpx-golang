@@ -24,6 +24,7 @@ func main() {
   } else {
     fmt.Println("--- no new files ---")
   }
+  fmt.Println() 
   // commit updated files
   if updatedFiles != "" {
     fmt.Println("Updated files :", updatedFiles)
@@ -32,6 +33,7 @@ func main() {
   } else {
     fmt.Println("--- no updated files ---")
   }
+  fmt.Println() 
   // commit deleted files
   if deletedFiles != "" {
     fmt.Println("Deleted files :", deletedFiles)
