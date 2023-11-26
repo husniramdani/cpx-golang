@@ -65,14 +65,13 @@ func filteredFiles(statusOutput string) (string, string, string) {
 		}
     if strings.HasPrefix(line, " M") {
       updatedFiles = append(updatedFiles, strings.TrimSpace(strings.TrimPrefix(line, " M")))
-      //
     }
     if strings.HasPrefix(line, " D") {
       deletedFiles = append(deletedFiles, strings.TrimSpace(strings.TrimPrefix(line, " D")))
     }
 	}
 
-	return strings.Join(newFiles, " "), strings.Join(updatedFiles, " "), strings.Join(updatedFiles, " ")
+	return strings.Join(newFiles, " "), strings.Join(updatedFiles, " "), strings.Join(deletedFiles, " ")
 }
 
 func gitAddCmd(files string){
