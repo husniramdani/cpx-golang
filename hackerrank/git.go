@@ -18,28 +18,28 @@ func main() {
 
   // commit new files
   if newFiles != "" {
-    fmt.Println("List of new files :", newFiles)
+    fmt.Println("New files :", newFiles)
     gitAddCmd(newFiles)
     gitCommitCmd("add", newFiles)
   } else {
-    fmt.Println("There are no new files")
+    fmt.Println("--- no new files ---")
   }
   fmt.Println() 
   // commit updated files
   if updatedFiles != "" {
-    fmt.Println("List of updated files :", updatedFiles)
+    fmt.Println("Updated files :", updatedFiles)
     gitAddCmd(updatedFiles)
     gitCommitCmd("update", updatedFiles)
   } else {
-    fmt.Println("There are no updated files")
+    fmt.Println("--- no updated files ---")
   }
   // commit deleted files
   if deletedFiles != "" {
-    fmt.Println("List of deleted files :", deletedFiles)
+    fmt.Println("Deleted files :", deletedFiles)
     gitAddCmd(deletedFiles)
     gitCommitCmd("deleted", deletedFiles)
   } else {
-    fmt.Println("There are no deletedFiles files")
+    fmt.Println("--- no delted files ---")
   }
 
 }
