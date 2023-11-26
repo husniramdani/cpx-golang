@@ -24,7 +24,6 @@ func main() {
   } else {
     fmt.Println("--- no new files ---")
   }
-  fmt.Println() 
   // commit updated files
   if updatedFiles != "" {
     fmt.Println("Updated files :", updatedFiles)
