@@ -11,9 +11,10 @@ import (
 
 func main() {
   // get list of new files
-  listofFiles := getListOfFiles()
+  listOfFiles := getListOfFiles()
   // define new files and updated files
-	newFiles, updatedFiles, deletedFiles := filteredFiles(listofFiles)
+  fmt.Println(listOfFiles)
+	newFiles, updatedFiles, deletedFiles := filteredFiles(listOfFiles)
 
   // commit new files
   if newFiles != "" {
