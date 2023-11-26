@@ -26,7 +26,7 @@ func main() {
   fmt.Println() 
   // commit  updated files
   if updatedFiles != "" {
-    fmt.Println("LIst of updated files :", updatedFiles)
+    fmt.Println("List of updated files :", updatedFiles)
     gitAddCmd(updatedFiles)
     gitCommitCmd("update", updatedFiles)
   } else {
