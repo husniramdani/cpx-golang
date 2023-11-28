@@ -49,6 +49,7 @@ func miniMaxSum(arr []int32){
   fmt.Println(sum-max, sum-min);
 }
 
+// main
 func main() {
     reader := bufio.NewReaderSize(os.Stdin, 16 * 1024 * 1024)
 
